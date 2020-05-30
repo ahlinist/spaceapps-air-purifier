@@ -8,7 +8,7 @@ import org.spaceappschallenge.purifyairsupply.event.EventBus;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 @Slf4j
@@ -23,8 +23,9 @@ public class ScheduledTask {
 
     @Scheduled(fixedRate = 5000)
     public void reportCurrentTime() {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ssz");
-        String formattedString = LocalDate.now().format(formatter);
+        LocalDateTime now = LocalDateTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        String formattedString = now.format(formatter);
         log.info("Heartbeat: {}", formattedString);
         Event event = eventBus.getNext();
 
