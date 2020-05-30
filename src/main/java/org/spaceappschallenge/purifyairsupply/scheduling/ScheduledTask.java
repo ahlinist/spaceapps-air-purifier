@@ -25,7 +25,7 @@ public class ScheduledTask {
         log.info("Heartbeat: {}", LocalDate.now());
         Event event = eventBus.getNext();
 
-        if (event.isIncludeAlarm()) {
+        if (event != null && event.isIncludeAlarm()) {
             audioPlayer.play(ALARM_RESOURCE_PATH);
         }
     }
