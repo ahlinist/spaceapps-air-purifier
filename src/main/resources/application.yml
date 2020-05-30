@@ -2,6 +2,9 @@ logging:
   file:
     name: logs/application.log
 
+operations:
+  interval: 10000
+
 sensor:
   co:
     pin: 0
