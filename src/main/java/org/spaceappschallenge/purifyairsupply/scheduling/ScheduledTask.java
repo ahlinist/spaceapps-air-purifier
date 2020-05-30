@@ -23,7 +23,7 @@ public class ScheduledTask {
 
     @Scheduled(fixedRate = 5000)
     public void reportCurrentTime() {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy-hh:mm:ss");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ssz");
         String formattedString = LocalDate.now().format(formatter);
         log.info("Heartbeat: {}", formattedString);
         Event event = eventBus.getNext();
