@@ -7,22 +7,18 @@ import org.springframework.stereotype.Component;
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
-import java.io.BufferedInputStream;
-import java.io.InputStream;
+import java.net.URL;
 
 @Component
 public class AudioPlayerImpl implements AudioPlayer {
 
-    private static final ClassLoader CLASS_LOADER = AudioPlayerImpl.class.getClassLoader();
-
     @Override
     @SneakyThrows
     public void play(String path) {
-        try (InputStream inputStream = new BufferedInputStream(CLASS_LOADER.getResourceAsStream(path))) {
-            AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(inputStream);
-            Clip clip = AudioSystem.getClip();
-            clip.open(audioInputStream);
-            clip.start();
-        }
+        URL url = AudioPlayerImpl.class.getResource(path);
+        AudioInputStream audioInputStream =  AudioSystem.getAudioInputStream(url);
+        Clip clip = AudioSystem.getClip();
+        clip.open(audioInputStream);
+        clip.start();
     }
 }
