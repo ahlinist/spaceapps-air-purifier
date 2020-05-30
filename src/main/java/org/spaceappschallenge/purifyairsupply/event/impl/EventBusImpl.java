@@ -21,7 +21,9 @@ public class EventBusImpl implements EventBus {
         if (events.isEmpty()) {
             return null;
         } else {
-            return events.pop();
+            Event event = events.pop();
+            events.clear();
+            return event;
         }
     }
 }
