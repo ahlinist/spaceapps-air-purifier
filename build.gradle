@@ -20,9 +20,14 @@ repositories {
 }
 
 dependencies {
+	//spring
 	implementation 'org.springframework.boot:spring-boot-starter'
+	//raspberry
+	implementation 'com.pi4j:pi4j-core:1.2'
+	//lombok
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
+	//testing
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'org.spockframework:spock-core:1.3-groovy-2.5'
 	testImplementation 'org.spockframework:spock-spring:1.3-groovy-2.5'
