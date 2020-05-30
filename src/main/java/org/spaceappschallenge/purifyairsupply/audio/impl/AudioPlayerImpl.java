@@ -16,8 +16,7 @@ public class AudioPlayerImpl implements AudioPlayer {
     @Override
     @SneakyThrows
     public void play(String path) {
-        URL url = AudioPlayerImpl.class.getResource(path);
-        //URL url =new File(path).toURI().toURL();
+        URL url = new File(path).toURI().toURL();
         AudioInputStream audioInputStream =  AudioSystem.getAudioInputStream(url);
         Clip clip = AudioSystem.getClip();
         clip.open(audioInputStream);
