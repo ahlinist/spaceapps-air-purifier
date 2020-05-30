@@ -9,6 +9,7 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 @Slf4j
 @Component
@@ -22,7 +23,9 @@ public class ScheduledTask {
 
     @Scheduled(fixedRate = 5000)
     public void reportCurrentTime() {
-        log.info("Heartbeat: {}", LocalDate.now());
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy-hh:mm:ss");
+        String formattedString = LocalDate.now().format(formatter);
+        log.info("Heartbeat: {}", formattedString);
         Event event = eventBus.getNext();
 
         if (event != null && event.isIncludeAlarm()) {
