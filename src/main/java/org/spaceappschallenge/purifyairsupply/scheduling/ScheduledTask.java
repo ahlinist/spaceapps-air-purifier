@@ -15,7 +15,7 @@ import java.time.LocalDate;
 @RequiredArgsConstructor
 public class ScheduledTask {
 
-    private static final String ALARM_RESOURCE_PATH = "audio/alarm.wav";
+    private static final String ALARM_RESOURCE_PATH = "src/resources/audio/alarm.wav";
 
     private final EventBus eventBus;
     private final AudioPlayer audioPlayer;
