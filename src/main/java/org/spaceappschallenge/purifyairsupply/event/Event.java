@@ -2,6 +2,7 @@ package org.spaceappschallenge.purifyairsupply.event;
 
 import lombok.Getter;
 
+@Getter
 public enum Event {
     CO_DETECTED(true);
 
@@ -9,6 +10,7 @@ public enum Event {
         this.includeAlarm = includeAlarm;
     }
 
-    @Getter
     boolean includeAlarm;
+    boolean includeLed;
+    boolean turnOnFan;
 }

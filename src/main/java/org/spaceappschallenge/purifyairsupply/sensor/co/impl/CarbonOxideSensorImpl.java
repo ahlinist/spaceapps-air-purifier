@@ -16,7 +16,7 @@ public class CarbonOxideSensorImpl implements CarbonOxideSensor {
 
     @Override
     public void registerEvent() {
-        System.out.println("Carbon dioxide detected!");
+        log.info("Carbon dioxide detected!");
         eventBus.addEvent(Event.CO_DETECTED);
     }
 }
