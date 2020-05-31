@@ -21,7 +21,7 @@ public class AudioPlayerImpl implements AudioPlayer {
         try(AudioInputStream audioInputStream =  AudioSystem.getAudioInputStream(url); Clip clip = AudioSystem.getClip()) {
             clip.open(audioInputStream);
             clip.start();
-            Thread.sleep(2000);
+            Thread.sleep(3000);
         }
     }
 }
