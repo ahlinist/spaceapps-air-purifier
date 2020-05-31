@@ -21,10 +21,6 @@ public class EventProcessorImpl implements EventProcessor {
 
     @Override
     public void process(Event event) {
-        if (event.isIncludeAlarm()) {
-            audioPlayer.play(ALARM_RESOURCE_PATH);
-        }
-
         if (event.isIncludeLed()) {
             log.info("Turning on LED");
             ledOutput.pulse();
@@ -33,6 +29,10 @@ public class EventProcessorImpl implements EventProcessor {
         if (event.isTurnOnFan()) {
             log.info("Turning on fan");
             fanOutput.pulse();
+        }
+
+        if (event.isIncludeAlarm()) {
+            audioPlayer.play(ALARM_RESOURCE_PATH);
         }
     }
 }
