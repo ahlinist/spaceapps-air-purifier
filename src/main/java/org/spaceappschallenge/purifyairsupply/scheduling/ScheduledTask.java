@@ -19,7 +19,7 @@ public class ScheduledTask {
     private final EventBus eventBus;
     private final EventProcessor eventProcessor;
 
-    @Scheduled(fixedRate = 5000)
+    @Scheduled(fixedRate = 1000)
     public void checkForEvents() {
         LocalDateTime now = LocalDateTime.now();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
