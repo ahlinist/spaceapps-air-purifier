@@ -8,3 +8,9 @@ operations:
 sensor:
   co:
     pin: 0
+
+output:
+  led:
+    pin: 3
+  fan:
+    pin: 4
